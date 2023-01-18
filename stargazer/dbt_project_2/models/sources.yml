@@ -1,0 +1,9 @@
+version: 2
+sources:
+- name: mart
+  database: postgres
+  schema: public_mart
+  tables:
+    - name: mart_gh_stargazer
+      identifier: mart_gh_stargazer
+      description: Given stars on GitHub repositories

@@ -1,0 +1,12 @@
+stargazers:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: localhost
+      port: 5433
+      user: postgres
+      pass: postgres
+      dbname: postgres
+      schema: public
