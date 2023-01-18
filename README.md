@@ -191,12 +191,8 @@ You'll notice the following behaviours:
 
 ![5-minute-freshness](/docs/images/5-minute-freshness.png)
 
-4. `mart_gh_join` will materialize every 10 minutes because it's dbt model [mart_gh_join.sql](stargazer/dbt_project_2/models/mart/mart_gh_join.sql) has a freshness policy of `dagster_freshness_policy={"maximum_lag_minutes": 10}`. This in turn will also trigger it's upstream assets to be materialized if it hasn't already. 
+4. `mart_gh_join` by 09:00 AM UTC, this asset should incorporate all data up to 9 hours before that time. [mart_gh_join.sql](stargazer/dbt_project_2/models/mart/mart_gh_join.sql) has a freshness policy of `{"maximum_lag_minutes": 9*60, "cron_schedule": "0 9 * * *"}`. 
 
-![10-minute-freshness](/docs/images/10-minute-freshness.png)
-
-5. `mart_gh_stargazer` will materialize every 10 minutes because it needs to do so to keep `mart_gh_join` fresh. It's dbt model [mart_gh_stargazer.sql](stargazer/dbt_project_1/models/mart/mart_gh_stargazer.sql) does not have a freshness policy.
-
-![fresh](/docs/images/fresh.png)
+![9am-freshness](/docs/images/9am-freshness.png)
 
 
