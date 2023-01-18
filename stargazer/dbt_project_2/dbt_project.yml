@@ -38,6 +38,9 @@ vars:
 # are materialized, and more!
 models:
   stargazers:
+    +dagster_freshness_policy: 
+      maximum_lag_minutes: 540
+      cron_schedule: "0 9 * * *"
     # When schema changes on models we are building, we should run dbt with --full-refresh flag explicitely
     +on_schema_change: "fail"
     +materialized: table

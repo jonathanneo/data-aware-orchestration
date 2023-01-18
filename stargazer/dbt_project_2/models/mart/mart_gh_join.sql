@@ -1,9 +1,3 @@
-{{
-    config(
-        dagster_freshness_policy={"maximum_lag_minutes": 9*60, "cron_schedule": "0 9 * * *"}
-    )
-}}
-
 with mart_gh_stargazer as (
     select *
     from {{ source('mart', 'mart_gh_stargazer') }}
