@@ -191,7 +191,7 @@ You'll notice the following behaviours:
 
 ![5-minute-freshness](/docs/images/5-minute-freshness.png)
 
-4. `mart_gh_join` by 09:00 AM UTC, this asset should incorporate all data up to 9 hours before that time. [mart_gh_join.sql](stargazer/dbt_project_2/models/mart/mart_gh_join.sql) has a freshness policy of `{"maximum_lag_minutes": 9*60, "cron_schedule": "0 9 * * *"}`. 
+4. `mart_gh_join` and `mart_gh_stargazer`: by 09:00 AM UTC, these assets should incorporate all data up to 9 hours before that time. This is because a dbt project-level configuration has been set for [project 1](stargazer/dbt_project_1/dbt_project.yml) and [project 2](stargazer/dbt_project_2/dbt_project.yml) with a freshness policy of `maximum_lag_minutes: 540` and  `cron_schedule: "0 9 * * *"`. 
 
 ![9am-freshness](/docs/images/9am-freshness.png)
 
