@@ -2,19 +2,21 @@
 
 This project demonstrates dagster's data-aware orchestration capability. 
 
-This project has the following assets to orchestrate: 
+### Concepts demonstrated: 
+
+- **dbt cross-project lineage**: dagster's ability to create a global dependency graph between different dbt projects. This is currently [not available in dbt](https://github.com/dbt-labs/dbt-core/discussions/5244). 
+- **Object-level dependencies between different assets**: dagster's ability to create object-level dependencies between different assets like an airbyte table materialization, and a dbt model materialization. 
+- **Freshness policy triggers**: Most data orchestration tools use cron schedules to trigger an entire DAG. Dagster reverses this approach and allows developers to define freshness policies on nodes so that upstream nodes can be triggered to deliver data to the target node on time. 
+
+### Data assets 
+
+This project has the following data assets to orchestrate: 
 1. An [airbyte](https://airbyte.com/) connection 
 1. Two [dbt](https://www.getdbt.com/) projects 
 
 ![global-asset-lineage](docs/images/global-asset-lineage.png)
 
 This project forks code from a demo prepared by [airbytehq's open-data-stack repo](https://github.com/airbytehq/open-data-stack/tree/main/dagster), and adds additional code to demonstrate newer concepts. 
-
-### Concepts demonstrated: 
-
-- **dbt cross-project lineage**: dagster's ability to create a global dependency graph between different dbt projects. This is currently [not available in dbt](https://github.com/dbt-labs/dbt-core/discussions/5244). 
-- **Object-level dependencies between different assets**: dagster's ability to create object-level dependencies between different assets like an airbyte table materialization, and a dbt model materialization. 
-- **Freshness policy triggers**: Most data orchestration tools use cron schedules to trigger an entire DAG. Dagster reverses this approach and allows developers to define freshness policies on nodes so that upstream nodes can be triggered to deliver data to the target node on time. 
 
 # Getting started 
 
