@@ -2,7 +2,7 @@
 
 This project demonstrates dagster's data-aware orchestration capability. 
 
-### Concepts demonstrated: 
+### Concepts demonstrated
 
 - **dbt cross-project lineage**: dagster's ability to create a global dependency graph between different dbt projects. This is currently [not available in dbt](https://github.com/dbt-labs/dbt-core/discussions/5244). 
 - **Object-level dependencies between different assets**: dagster's ability to create object-level dependencies between different assets like an airbyte table materialization, and a dbt model materialization. 
